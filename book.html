@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Room Booking</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        body {
+            background-image: url('gradient.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+}
+
+#booking-form {
+    width: 40%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    color: purple;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-image: url('gradient.jpg');
+    color: purple;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    font-size: 1.2vw;
+}
+    
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+    </style>
+</head>
+<body>
+
+    <div id="booking-form">
+        <h1>Hotel Room Booking</h1>
+        <form action="booking.php" method="POST">
+            <label>Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label>Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label>Check-in Date:</label>
+            <input type="date" id="checkin" name="checkin" required>
+
+            <label>Check-out Date:</label>
+            <input type="date" id="checkout" name="checkout" required>
+
+            <label>Room Type:</label>
+            <select name="room_type" id="room_type" required>
+                <option value="SIGNATURE PENTHOUSE">SIGNATURE PENTHOUSE</option>
+                <option value="SUITE LUXURY">SUITE LUXURY</option>
+                <option value="ROYAL LUXURY">ROYAL LUXURY</option>
+            </select>
+
+            <input type="submit" value="Book Now">
+        </form>
+    </div>
+
+</body>
+</html>

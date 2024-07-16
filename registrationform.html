@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" type="text/css" href="regstyle.css">
+    <style>
+        body {
+            background-image: url('gradient.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #regform {
+            width: 35%; 
+            color: purple;
+            font-size: small;
+            box-shadow: 5px 5px 5px rgb(10, 16, 16);
+            border-radius: 20px;
+            background-color: whitesmoke;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: purple;
+            font-size: 2.5vw;
+            font-family: 'Times New Roman', Times, serif;
+            margin-bottom: 20px;
+        }
+
+        .formcon {
+            background: transparent;
+        }
+
+        label {
+            font-size: 1.5vw;
+            color: purple;
+            margin-bottom: 8px;
+            display: block;
+            
+        }
+
+        input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            
+            border-radius: 4px;
+            font-size: 1.2vw;
+            background-color: rgba(255, 255, 255, 0.3);
+            color: purple;
+            display: inline-block;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #4caf50;
+            color: purple;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            height: 40px;
+            font-size: 1.2vw;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .loginpage {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .loginlogo {
+            color: purple;
+            font-size: 1.2vw;
+            margin: 0 5px;
+            padding: 10px;
+            border-radius: 15px;
+            background-color: rgba(0, 0, 0, 0.4);
+            text-decoration: none;
+        }
+
+        .pc {
+            font-size: 1.2vw;
+            color: purple;
+        }
+
+        .error-message {
+            color: #ff0000;
+            margin-top: 5px;
+            font-size: 1vw;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="regform">
+        <h1>REGISTRATION FORM</h1>
+        <form name="regform" action="registration.php" method="POST" class="formcon" onsubmit="return validateForm()">
+            <label>USERNAME:</label>
+            <input type="text" id="user" name="user" placeholder="Enter User Name" required>
+
+            <label>EMAIL:</label>
+            <input type="email" id="email" name="email" placeholder="Enter Email" required>
+
+            <label>CONTACT NUMBER:</label>
+            <input type="tel" id="contact" name="contact" placeholder="Enter Contact Number" required>
+
+            <label>PASSWORD:</label>
+            <input type="password" id="pass" name="pass" placeholder="Enter Password" required>
+
+            <label>CONFIRM PASSWORD:</label>
+            <input type="password" id="confirmPass" name="confirmPass" placeholder="Confirm Password" required>
+            <span id="confirmPassError" class="error-message"></span>
+
+            <div class="pbtn">
+                <input type="submit" value="REGISTER" id="btn" name="submit" />
+            </div>
+        </form>
+        <div class="loginpage">
+            <p class="pc">Login if already registered
+                <a class="loginlogo" href="login.html">LOGIN</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var password = document.getElementById("pass").value;
+            var confirmPass = document.getElementById("confirmPass").value;
+            var confirmPassError = document.getElementById("confirmPassError");
+
+            if (password !== confirmPass) {
+                confirmPassError.innerHTML = "Passwords do not match!";
+                return false;
+            } else {
+                confirmPassError.innerHTML = "";
+                return true;
+            }
+        }
+    </script>
+</body>
+</html>
